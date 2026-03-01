@@ -689,15 +689,38 @@
     gap: 40px;
   }
 
-  .info-item{
-    writing-mode: horizontal-tb;
-    text-orientation: mixed;
-    font-size: 18px;
-    line-height: 1.8;
-  }
+
 
   .info-item::before{
     display:none;
   }
 
+}
+
+/* ===== 緊急：スマホで縦書きを強制解除（崩れ対策） ===== */
+@media (max-width: 900px){
+
+  /* 縦書きがどこかで入ってても、スマホでは全部横書きに戻す */
+  body *{
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
+  /* リスト行が縦に潰れるのを防ぐ */
+  .item, .price{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* 電話番号やLINE IDが崩れないように折り返し */
+  a, code{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* 余白・可読性の微調整 */
+  .item{ padding: 14px 12px; }
+  .tick{ margin-top: 2px; }
 }
