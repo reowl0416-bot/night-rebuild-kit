@@ -681,3 +681,23 @@
   </script>
 </body>
 </html>
+/* ===== スマホ最適化 ===== */
+@media (max-width: 768px){
+
+  .info-grid{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .info-item{
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .info-item::before{
+    display:none;
+  }
+
+}
